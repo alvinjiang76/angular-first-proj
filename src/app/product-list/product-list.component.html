@@ -1,0 +1,36 @@
+<h2>Products</h2>
+
+<!-- *ngFor repeats the div for each product in the list -->
+<div *ngFor="let product of products">
+  <!-- the <a represents anchor and the brackets indicate property binding, which means that it allows you to use the property value in a template expression. When hovering over it, it shows the product name and details -->
+  <h3> <a [title]="product.name + ' details'">{{product.name}}</a></h3>
+  <!-- {{}} this is an interpolation syntax that allows you to render the property value (inside the curly braces) as text. product.name is kind of like a variable, where it retrieves tha name of a product. It also serves as a link to another part of the page-->
+
+  <p *ngIf="product.description">
+    <!--- *ngIf basically means for every product, if there is a product description, then the format Description: {{descritpion of phone}} will appear under the headings (or phone name) -->
+    Description: {{product.description}}
+  </p>
+
+  <button (click)="share()">Share</button>
+  <!--the (click) calls the share() method in the product-list.component.ts file, which will give you a pop-up showing that you have shared the link.-->
+
+  <app-product-alerts [product]="product" (notify)="onNotify()"></app-product-alerts>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->
