@@ -3,7 +3,11 @@
 <!-- *ngFor repeats the div for each product in the list -->
 <div *ngFor="let product of products">
   <!-- the <a represents anchor and the brackets indicate property binding, which means that it allows you to use the property value in a template expression. When hovering over it, it shows the product name and details -->
-  <h3> <a [title]="product.name + ' details'">{{product.name}}</a></h3>
+  <h3>
+    <a [title]="product.name + ' details'" [routerLink]="['/products', product.id]">
+      {{ product.name }}
+    </a>
+  </h3>
   <!-- {{}} this is an interpolation syntax that allows you to render the property value (inside the curly braces) as text. product.name is kind of like a variable, where it retrieves tha name of a product. It also serves as a link to another part of the page-->
 
   <p *ngIf="product.description">
